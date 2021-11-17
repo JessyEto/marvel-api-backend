@@ -16,27 +16,9 @@ app.use(comicsRoutes);
 const characterRoutes = require('./routes/character');
 app.use(characterRoutes);
 
-// app.get('/comics', async (req, res) => {
-//   console.log('here');
-//   try {
-//     // call Marvel server using API
-//     const response = await axios.get(
-//       `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}`,
-//       {
-//         params: {
-//           limit: req.query.limit,
-//           skip: req.query.skip,
-//           title: req.query.title,
-//         },
-//       }
-//     );
-
-//     res.json(response.data);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
-
+app.get('/', (req, res) => {
+  res.json({ message: 'BIENVENUE !' });
+});
 // 404
 app.all('*', (req, res) => {
   res.status(404).json({ message: 'Page not found' });

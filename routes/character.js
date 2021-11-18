@@ -9,7 +9,14 @@ const axios = require('axios');
 router.get('/characters', async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`,
+      {
+        params: {
+          limit: req.query.limit,
+          skip: req.query.skip,
+          title: req.query.title,
+        },
+      }
     );
     res.json(response.data);
   } catch (error) {

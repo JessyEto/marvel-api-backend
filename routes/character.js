@@ -7,6 +7,8 @@ const axios = require('axios');
 
 // Get a list of characters
 router.get('/characters', async (req, res) => {
+  console.log('here');
+
   try {
     const response = await axios.get(
       `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`,
@@ -14,7 +16,7 @@ router.get('/characters', async (req, res) => {
         params: {
           limit: req.query.limit,
           skip: req.query.skip,
-          title: req.query.title,
+          name: req.query.name,
         },
       }
     );

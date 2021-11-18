@@ -7,7 +7,6 @@ const axios = require('axios');
 
 // get the list of comics
 router.get('/comics', async (req, res) => {
-  console.log('here');
   try {
     // call Marvel server using API
     const response = await axios.get(
